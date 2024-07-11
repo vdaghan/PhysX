@@ -1161,7 +1161,7 @@ void NPhaseCore::addToPersistentContactEventPairs(ShapeInteraction* si)
 void NPhaseCore::addToPersistentContactEventPairsDelayed(ShapeInteraction* si)
 {
 	// Pairs which request events which do not get triggered by the sdk and thus need to be tested actively every frame.
-	PX_ASSERT(si->getPairFlags() & (PxPairFlag::eNOTIFY_TOUCH_PERSISTS | ShapeInteraction::CONTACT_FORCE_THRESHOLD_PAIRS));
+	PX_ASSERT(si->getPairFlags() & (static_cast<int>(PxPairFlag::eNOTIFY_TOUCH_PERSISTS) | static_cast<int>(ShapeInteraction::CONTACT_FORCE_THRESHOLD_PAIRS)));
 	PX_ASSERT(si->mReportPairIndex == INVALID_REPORT_PAIR_ID);
 	PX_ASSERT(!si->readFlag(ShapeInteraction::IS_IN_PERSISTENT_EVENT_LIST));
 	PX_ASSERT(!si->readFlag(ShapeInteraction::IS_IN_FORCE_THRESHOLD_EVENT_LIST));
@@ -1174,7 +1174,7 @@ void NPhaseCore::addToPersistentContactEventPairsDelayed(ShapeInteraction* si)
 
 void NPhaseCore::removeFromPersistentContactEventPairs(ShapeInteraction* si)
 {
-	PX_ASSERT(si->getPairFlags() & (PxPairFlag::eNOTIFY_TOUCH_PERSISTS | ShapeInteraction::CONTACT_FORCE_THRESHOLD_PAIRS));
+	PX_ASSERT(si->getPairFlags() & (static_cast<int>(PxPairFlag::eNOTIFY_TOUCH_PERSISTS) | static_cast<int>(ShapeInteraction::CONTACT_FORCE_THRESHOLD_PAIRS)));
 	PX_ASSERT(si->readFlag(ShapeInteraction::IS_IN_PERSISTENT_EVENT_LIST));
 	PX_ASSERT(!si->readFlag(ShapeInteraction::IS_IN_FORCE_THRESHOLD_EVENT_LIST));
 	PX_ASSERT(si->hasTouch()); // only pairs which could lose or keep contact should be in this list

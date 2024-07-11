@@ -41,8 +41,8 @@ TriggerInteraction::TriggerInteraction(	ShapeSimBase& tShape, ShapeSimBase& oSha
 
 	// The PxPairFlags eNOTIFY_TOUCH_FOUND and eNOTIFY_TOUCH_LOST get stored and mixed up with internal flags. Make sure any breaking change gets noticed.
 	PX_COMPILE_TIME_ASSERT(PxPairFlag::eNOTIFY_TOUCH_FOUND < PxPairFlag::eNOTIFY_TOUCH_LOST);
-	PX_COMPILE_TIME_ASSERT((PAIR_FLAGS_MASK & PxPairFlag::eNOTIFY_TOUCH_FOUND) == PxPairFlag::eNOTIFY_TOUCH_FOUND);
-	PX_COMPILE_TIME_ASSERT((PAIR_FLAGS_MASK & PxPairFlag::eNOTIFY_TOUCH_LOST) == PxPairFlag::eNOTIFY_TOUCH_LOST);
+	PX_COMPILE_TIME_ASSERT((static_cast<int>(PAIR_FLAGS_MASK) & static_cast<int>(PxPairFlag::eNOTIFY_TOUCH_FOUND)) == PxPairFlag::eNOTIFY_TOUCH_FOUND);
+	PX_COMPILE_TIME_ASSERT((static_cast<int>(PAIR_FLAGS_MASK) & static_cast<int>(PxPairFlag::eNOTIFY_TOUCH_LOST)) == PxPairFlag::eNOTIFY_TOUCH_LOST);
 	PX_COMPILE_TIME_ASSERT(PxPairFlag::eNOTIFY_TOUCH_FOUND < 0xffff);
 	PX_COMPILE_TIME_ASSERT(PxPairFlag::eNOTIFY_TOUCH_LOST < 0xffff);
 	PX_COMPILE_TIME_ASSERT(LAST < 0xffff);

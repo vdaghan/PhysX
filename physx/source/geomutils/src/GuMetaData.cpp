@@ -420,12 +420,12 @@ void Gu::TriangleMesh::getBinaryMetaData(PxOutputStream& stream)
 	// no way to capture "mNumTriangles*3" using the macros, so we just pretend we exported 3 buffers instead of 1.
 	// But since in reality it's all the same buffer, only the first one is declared as aligned.
 
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU16, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, 0, PX_SERIAL_ALIGN)
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU16, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, 0, 0)
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU16, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, 0, 0)
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU32, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, PX_SERIAL_ALIGN)
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU32, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, 0)
-	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream,	TriangleMesh, PxU32, mFlags, PxTriangleMeshFlag::e16_BIT_INDICES, mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, 0)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU16, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, 0, PX_SERIAL_ALIGN)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU16, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, 0, 0)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU16, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, 0, 0)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU32, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, PX_SERIAL_ALIGN)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU32, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, 0)
+	PX_DEF_BIN_METADATA_EXTRA_ITEMS_MASKED_CONTROL(stream, TriangleMesh, PxU32, mFlags, static_cast<int>(PxTriangleMeshFlag::e16_BIT_INDICES), mNbTriangles, PxMetaDataFlag::eCONTROL_FLIP, 0)
 
 	// mExtraTrigData
 	PX_DEF_BIN_METADATA_EXTRA_ITEMS(stream, TriangleMesh, PxU8, mExtraTrigData, mNbTriangles, 0, PX_SERIAL_ALIGN)

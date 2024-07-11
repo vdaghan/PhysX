@@ -249,7 +249,7 @@ struct SubSortQuick
 		boundCenters.reserve(boundsCount); // AP - measured that precomputing centers helps with perf significantly (~20% on 1k verts)
 		for(PxU32 i = 0; i < boundsCount; i++)
 			boundCenters.pushBack( allBounds[i].getMinVec3() + allBounds[i].getMaxVec3() );
-		PxU32 iTradeOff = PxMin<PxU32>( PxU32(PxMax<PxReal>(0.0f, sizePerfTradeOff01)*NTRADEOFF), NTRADEOFF-1 );
+		PxU32 iTradeOff = PxMin<PxU32>(PxU32(PxMax<PxReal>(0.0f, sizePerfTradeOff01) * static_cast<int>(NTRADEOFF)), NTRADEOFF - 1);
 		maxBoundsPerLeafPage = stopAtTrisPerLeaf1[iTradeOff];
 	}
 
