@@ -635,9 +635,9 @@ void showFPS(int updateIntervalMS, const char* info)
 	if (currentTime - gLastTime > updateIntervalMS)
 	{
 		if (info)
-			sprintf(gTitle, " FPS : %4.0f%s", gFrameCounter * 1000.0 / (currentTime - gLastTime), info);
+			sprintf_s(gTitle, " FPS : %4.0f%s", gFrameCounter * 1000.0 / (currentTime - gLastTime), info);
 		else
-			sprintf(gTitle, " FPS : %4.0f", gFrameCounter * 1000.0 / (currentTime - gLastTime));
+			sprintf_s(gTitle, " FPS : %4.0f", gFrameCounter * 1000.0 / (currentTime - gLastTime));
 		glutSetWindowTitle(gTitle);
 		gLastTime = currentTime;
 		gFrameCounter = 0;
@@ -1189,18 +1189,18 @@ void DrawLine(const PxVec3& p0, const PxVec3& p1, const PxVec3& color)
 	glEnable(GL_LIGHTING);
 }
 
-const physx::PxVec3 icosahedronPoints[12] = { PxVec3(0, -0.525731, 0.850651),
-PxVec3(0.850651, 0, 0.525731),
-PxVec3(0.850651, 0, -0.525731),
-PxVec3(-0.850651, 0, -0.525731),
-PxVec3(-0.850651, 0, 0.525731),
-PxVec3(-0.525731, 0.850651, 0),
-PxVec3(0.525731, 0.850651, 0),
-PxVec3(0.525731, -0.850651, 0),
-PxVec3(-0.525731, -0.850651, 0),
-PxVec3(0, -0.525731, -0.850651),
-PxVec3(0, 0.525731, -0.850651),
-PxVec3(0, 0.525731, 0.850651) };
+const physx::PxVec3 icosahedronPoints[12] = { PxVec3(0.0f, -0.525731f, 0.850651f),
+PxVec3(0.850651f, 0.0f, 0.525731f),
+PxVec3(0.850651f, 0.0f, -0.525731f),
+PxVec3(-0.850651f, 0.0f, -0.525731f),
+PxVec3(-0.850651f, 0.0f, 0.525731f),
+PxVec3(-0.525731f, 0.850651f, 0.0f),
+PxVec3(0.525731f, 0.850651f, 0.0f),
+PxVec3(0.525731f, -0.850651f, 0.0f),
+PxVec3(-0.525731f, -0.850651f, 0.0f),
+PxVec3(0.0f, -0.525731f, -0.850651f),
+PxVec3(0.0f, 0.525731f, -0.850651f),
+PxVec3(0.0f, 0.525731f, 0.850651f) };
 const PxU32 icosahedronIndices[3 * 20] = { 1  ,2  ,6  ,
 1  ,7  ,2  ,
 3  ,4  ,5  ,

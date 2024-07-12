@@ -776,7 +776,7 @@ static SweepFunc gSweepMap[SweptVolumeType::eLAST][TouchedGeomType::eLAST] = {
 	}
 };
 
-PX_COMPILE_TIME_ASSERT(sizeof(gSweepMap)==SweptVolumeType::eLAST*TouchedGeomType::eLAST*sizeof(SweepFunc));
+PX_COMPILE_TIME_ASSERT(sizeof(gSweepMap) == static_cast<int>(SweptVolumeType::eLAST) * static_cast<int>(TouchedGeomType::eLAST) * sizeof(SweepFunc));
 
 static const PxU32 GeomSizes[] =
 {

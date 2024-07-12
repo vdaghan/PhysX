@@ -168,7 +168,7 @@ void PxVehicleGraph::computeGraphChannel(const PxU32 channel, PxReal* xy, PxVec3
 	for(PxU32 i=0;i<PxVehicleGraph::eMAX_NB_SAMPLES;i++)
 	{
 		const PxU32 index = (mSampleTide+1+i)%PxVehicleGraph::eMAX_NB_SAMPLES;
-		xy[2*i+0] = mBackgroundMinX+sizeX*i/(1.0f * PxVehicleGraph::eMAX_NB_SAMPLES);
+		xy[2 * i + 0] = mBackgroundMinX + sizeX * i / (1.0f * static_cast<int>(PxVehicleGraph::eMAX_NB_SAMPLES));
 		const PxF32 sampleVal = PxClamp(mChannelSamples[channel][index],minVal,maxVal);
 		const PxReal y = (sampleVal-minVal)/(maxVal-minVal);		
 		xy[2*i+1] = mBackgroundMinY+sizeY*y;
